@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".CustomNumbersActivity">
+
+    <Button
+        android:id="@+id/botonIniciarPartida"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar partida normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/lineaMitadVerticalCustom"
+        app:layout_constraintTop_toBottomOf="@id/switchRey"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <Button
+        android:id="@+id/botonConfigurarNumeros"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar partida normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/lineaMitadVerticalCustom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/switchRey"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <Switch
+        android:id="@+id/switchAs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="1"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lineaInicioHorizontalCustom"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="2"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchAs"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switch3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="3"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch2"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switch4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="4"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch3"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switch5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="5"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch4"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switch6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="6"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch5"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switch7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="7"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintTop_toTopOf="@+id/lineaInicioHorizontalCustom"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switch8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="8"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintTop_toBottomOf="@+id/switch7"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switch10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="10"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintTop_toBottomOf="@+id/switch9"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switch9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="9"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintTop_toBottomOf="@+id/switch8"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switchJota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="J"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintTop_toBottomOf="@+id/switch10"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switchReina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Q"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintTop_toBottomOf="@+id/switchJota"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switchRey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="K"
+        android:textColor="@color/icons"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch6"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/lineaInicioHorizontalCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/lineaMitadVerticalCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+</androidx.constraintlayout.widget.ConstraintLayout>
