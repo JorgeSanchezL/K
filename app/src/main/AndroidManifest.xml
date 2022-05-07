@@ -10,14 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K">
         <activity
+            android:name=".CustomActionsActivity"
+            android:exported="false" />
+        <activity
             android:name=".CustomNumbersActivity"
             android:exported="false" />
         <activity
-            android:name=".StartActivity"
+            android:name=".GameActivity"
             android:exported="false" />
         <activity
-            android:name=".GameActivity"
-            android:exported="true">
+            android:name=".StartActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

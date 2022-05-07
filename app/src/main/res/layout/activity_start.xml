@@ -8,7 +8,7 @@
     tools:context=".StartActivity">
 
     <Button
-        android:id="@+id/botonNormal"
+        android:id="@+id/botonNormalStart"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.9" />
 
     <Button
-        android:id="@+id/botonPersonalizada"
+        android:id="@+id/botonPersonalizadaStart"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

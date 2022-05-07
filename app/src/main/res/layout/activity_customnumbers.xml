@@ -8,28 +8,39 @@
     tools:context=".CustomNumbersActivity">
 
     <Button
-        android:id="@+id/botonIniciarPartida"
+        android:id="@+id/botonVolverNumerosPersonalizados"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Iniciar partida normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/lineaMitadVerticalCustom"
-        app:layout_constraintTop_toBottomOf="@id/switchRey"
-        app:layout_constraintVertical_bias="0.3" />
-
-    <Button
-        android:id="@+id/botonConfigurarNumeros"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Iniciar partida normal"
+        android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/lineaMitadVerticalCustom"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/botonConfigurarAcciones" />
+
+    <Button
+        android:id="@+id/botonConfigurarAcciones"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cambiar acciones"
+        app:layout_constraintBottom_toBottomOf="@+id/botonVolverNumerosPersonalizados"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/switchRey"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.2" />
+
+    <Button
+        android:id="@+id/botonIniciarPartidaPersonalizarNumeros"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Iniciar partida"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lineaMitadVerticalCustom"
+        app:layout_constraintTop_toBottomOf="@+id/botonConfigurarAcciones" />
 
     <Switch
         android:id="@+id/switchAs"
@@ -41,7 +52,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/lineaMitadVerticalCustom"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lineaInicioHorizontalCustom"
+        app:layout_constraintTop_toTopOf="@+id/lineaInicioHorizontalCustomArriba"
         tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
 
     <Switch
@@ -119,7 +130,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/lineaMitadVerticalCustom"
-        app:layout_constraintTop_toTopOf="@+id/lineaInicioHorizontalCustom"
+        app:layout_constraintTop_toTopOf="@+id/lineaInicioHorizontalCustomArriba"
         tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
 
     <Switch
@@ -201,7 +212,7 @@
         tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/lineaInicioHorizontalCustom"
+        android:id="@+id/lineaInicioHorizontalCustomArriba"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -213,4 +224,23 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/textoValoresElegidos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:autoSizeMaxTextSize="70sp"
+        android:autoSizeMinTextSize="16sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/firacode"
+        android:gravity="center"
+        android:text="Elige las cartas que vas a usar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/lineaInicioHorizontalCustomArriba"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

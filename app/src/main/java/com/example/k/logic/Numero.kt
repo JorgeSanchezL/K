@@ -1,5 +1,7 @@
 package com.example.k.logic
 
+import java.io.Serializable
+
 enum class Numero(val valor: String) {
     AS("as"),
     DOS("dos"),

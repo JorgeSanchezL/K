@@ -14,11 +14,12 @@ import com.example.k.logic.Valor
 
 class GameActivity : AppCompatActivity() {
 
-    val baraja = crearBarajaNormal()
+    lateinit var baraja: Baraja
     lateinit var textoAccion: TextView
     lateinit var imagenCarta: ImageView
     lateinit var botonRotar: Button
     lateinit var context: Context
+    lateinit var cartas: ArrayList<Carta>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,9 @@ class GameActivity : AppCompatActivity() {
         imagenCarta = findViewById(R.id.imagenCarta)
         botonRotar = findViewById(R.id.botonRotar)
         context = imagenCarta.context
+        baraja = intent.extras?.getSerializable("baraja") as Baraja
+        if (baraja.valores.count() == 0) cartas = baraja.crearBarajaNormal()
+        else cartas = baraja.crearBaraja()
 
         botonRotar.setOnClickListener {
             sacarCarta()
@@ -36,8 +40,8 @@ class GameActivity : AppCompatActivity() {
 
     fun sacarCarta() {
         textoAccion.text = ""
-        baraja.cartas.shuffle()
-        var carta = baraja.cartas.removeAt(0)
+        cartas.shuffle()
+        var carta = cartas.removeAt(0)
         darVueltaPrimeraMitad(carta)
     }
 
@@ -60,23 +64,5 @@ class GameActivity : AppCompatActivity() {
             rotationYBy(90f)
         }
         textoAccion.text = carta.getAccion()
-    }
-
-    fun crearBarajaNormal() : Baraja {
-        var valores = ArrayList<Valor>()
-        valores.add(Valor(Numero.AS, "Cascada"))
-        valores.add(Valor(Numero.DOS, "Beben los dos de la derecha"))
-        valores.add(Valor(Numero.TRES, "Beben los tres de la izquierda"))
-        valores.add(Valor(Numero.CUATRO, "Mandas cuatro tragos a una persona"))
-        valores.add(Valor(Numero.CINCO, "Repartes cinco tragos"))
-        valores.add(Valor(Numero.SEIS, "Comodin"))
-        //valores.add(Valor(Numero.SIETE, "Te libras"))
-        valores.add(Valor(Numero.OCHO, "Bebes durante ocho segundos"))
-        valores.add(Valor(Numero.NUEVE, "Beben uno si uno no (Empieza el que ha sacado la carta)"))
-        valores.add(Valor(Numero.DIEZ, "Votación"))
-        valores.add(Valor(Numero.JOTA, "Beben todos"))
-        valores.add(Valor(Numero.REY, "Beben los hombres"))
-        valores.add(Valor(Numero.REINA, "Beben las mujeres"))
-        return Baraja(valores)
     }
 }
