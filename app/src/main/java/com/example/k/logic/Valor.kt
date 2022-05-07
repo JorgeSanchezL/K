@@ -8,8 +8,6 @@ class Valor(numero: Numero, accion: String) : Serializable {
 
     override fun toString(): String = numero.valor
 
-    fun getStringValor() : String = numero.valor
-
     fun asignarValorPredeterminado() {
         when (numero) {
             Numero.AS -> accion = "Cascada"
@@ -17,7 +15,7 @@ class Valor(numero: Numero, accion: String) : Serializable {
             Numero.TRES -> accion = "Beben los tres de la izquierda"
             Numero.CUATRO -> accion = "Mandas cuatro tragos a una persona"
             Numero.CINCO -> accion = "Repartes cinco tragos"
-            Numero.SEIS -> accion = "Comodin"
+            Numero.SEIS -> accion = "Comodín"
             Numero.SIETE -> accion = "Te libras"
             Numero.OCHO -> accion = "Bebes durante ocho segundos"
             Numero.NUEVE -> accion = "Beben uno si uno no (Empieza el que ha sacado la carta)"

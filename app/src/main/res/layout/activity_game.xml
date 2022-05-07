@@ -2,31 +2,107 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context=".GameActivity">
-
-    <Button
-        android:id="@+id/botonRotar"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenCarta" />
 
     <ImageView
         android:id="@+id/imagenCarta"
         android:layout_width="150dp"
         android:layout_height="218dp"
         android:contentDescription="Carta"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dorso"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imagenBaraja1"
+        android:layout_width="80dp"
+        android:layout_height="108dp"
+        android:contentDescription="Carta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.922"
+        app:srcCompat="@drawable/dorso"
+        tools:ignore="ImageContrastCheck" />
+
+
+    <ImageView
+        android:id="@+id/imagenBaraja2"
+        android:layout_width="80dp"
+        android:layout_height="108dp"
+        android:contentDescription="Carta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.918"
+        app:srcCompat="@drawable/dorso"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imagenBaraja3"
+        android:layout_width="80dp"
+        android:layout_height="108dp"
+        android:contentDescription="Carta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.914"
+        app:srcCompat="@drawable/dorso"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imagenBaraja4"
+        android:layout_width="80dp"
+        android:layout_height="108dp"
+        android:contentDescription="Carta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.910"
+        app:srcCompat="@drawable/dorso"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imagenBaraja5"
+        android:layout_width="80dp"
+        android:layout_height="108dp"
+        android:contentDescription="Carta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.906"
+        app:srcCompat="@drawable/dorso"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imagenBaraja6"
+        android:layout_width="80dp"
+        android:layout_height="108dp"
+        android:contentDescription="Carta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.902"
         app:srcCompat="@drawable/dorso"
         tools:ignore="ImageContrastCheck" />
 

@@ -4,5 +4,5 @@ class Carta(valor: Valor, palo: Palo) {
     val valor = valor
     val palo = palo
     fun getAccion() : String = valor.accion
-    fun getStringImagen() : String = valor.getStringValor() + palo.getStringPalo()
+    fun getStringImagen() : String = valor.toString() + palo.getStringPalo()
 }

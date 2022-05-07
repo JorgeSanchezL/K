@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import com.example.k.logic.Baraja
+import com.example.k.logic.ItemAdapter
 import com.example.k.logic.Valor
 
 class CustomActionsActivity : AppCompatActivity() {
@@ -32,7 +33,7 @@ class CustomActionsActivity : AppCompatActivity() {
 
         listaValores = intent.extras?.getSerializable("valores") as ArrayList<Valor>
 
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaValores)
+        val arrayAdapter = ItemAdapter(applicationContext, listaValores)
         listView = findViewById(R.id.listViewActions)
         listView.adapter = arrayAdapter
 
