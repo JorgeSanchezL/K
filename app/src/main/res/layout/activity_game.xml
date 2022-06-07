@@ -21,90 +21,6 @@
         app:srcCompat="@drawable/dorso"
         tools:ignore="ImageContrastCheck" />
 
-    <ImageView
-        android:id="@+id/imagenBaraja1"
-        android:layout_width="80dp"
-        android:layout_height="108dp"
-        android:contentDescription="Carta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.922"
-        app:srcCompat="@drawable/dorso"
-        tools:ignore="ImageContrastCheck" />
-
-
-    <ImageView
-        android:id="@+id/imagenBaraja2"
-        android:layout_width="80dp"
-        android:layout_height="108dp"
-        android:contentDescription="Carta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.918"
-        app:srcCompat="@drawable/dorso"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/imagenBaraja3"
-        android:layout_width="80dp"
-        android:layout_height="108dp"
-        android:contentDescription="Carta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.914"
-        app:srcCompat="@drawable/dorso"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/imagenBaraja4"
-        android:layout_width="80dp"
-        android:layout_height="108dp"
-        android:contentDescription="Carta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.910"
-        app:srcCompat="@drawable/dorso"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/imagenBaraja5"
-        android:layout_width="80dp"
-        android:layout_height="108dp"
-        android:contentDescription="Carta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906"
-        app:srcCompat="@drawable/dorso"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/imagenBaraja6"
-        android:layout_width="80dp"
-        android:layout_height="108dp"
-        android:contentDescription="Carta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.902"
-        app:srcCompat="@drawable/dorso"
-        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/textoAccion"
@@ -120,5 +36,46 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textoFin"
+        android:layout_width="333dp"
+        android:layout_height="135dp"
+        android:autoSizeMaxTextSize="70sp"
+        android:autoSizeMinTextSize="16sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/firacode"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:text="¡Fin del juego! Se han acabado todas las cartas"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/botonReiniciar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botonReiniciar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver a empezar"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/botonVolverDespuesDeFin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
+    <Button
+        android:id="@+id/botonVolverDespuesDeFin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver al menú"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

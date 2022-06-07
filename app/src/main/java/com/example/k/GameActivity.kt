@@ -3,6 +3,7 @@ package com.example.k
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -16,25 +17,21 @@ class GameActivity : AppCompatActivity() {
     lateinit var baraja: Baraja
     lateinit var textoAccion: TextView
     lateinit var imagenCarta: ImageView
+    lateinit var textoFin: TextView
+    lateinit var botonReiniciar: Button
+    lateinit var botonVolver: Button
     lateinit var context: Context
     lateinit var cartas: ArrayList<Carta>
-
-    lateinit var cartaBaraja1: ImageView
-    lateinit var cartaBaraja2: ImageView
-    lateinit var cartaBaraja3: ImageView
-    lateinit var cartaBaraja4: ImageView
-    lateinit var cartaBaraja5: ImageView
-    lateinit var cartaBaraja6: ImageView
+    lateinit var cartasInicial: ArrayList<Carta>
 
     var cartaMostrando = false
-    var cartaGirando = false
-    var numeroCartasInicial: Int = 0
+    var haciendoAccion = false
 
 
     override fun onBackPressed() {
         val builder = AlertDialog.Builder(this)
         builder.setIcon(android.R.drawable.ic_dialog_alert)
-            .setMessage("¿Estás seguro de querer cerrar el juego?")
+            .setMessage("¿Estás seguro de querer salir del juego?")
             .setPositiveButton("Sí", DialogInterface.OnClickListener { dialog, which -> finish() })
             .setNegativeButton("No", null)
             .show()
@@ -46,13 +43,9 @@ class GameActivity : AppCompatActivity() {
 
         textoAccion = findViewById(R.id.textoAccion)
         imagenCarta = findViewById(R.id.imagenCarta)
-
-        cartaBaraja1 = findViewById(R.id.imagenBaraja1)
-        cartaBaraja2 = findViewById(R.id.imagenBaraja2)
-        cartaBaraja3 = findViewById(R.id.imagenBaraja3)
-        cartaBaraja4 = findViewById(R.id.imagenBaraja4)
-        cartaBaraja5 = findViewById(R.id.imagenBaraja5)
-        cartaBaraja6 = findViewById(R.id.imagenBaraja6)
+        textoFin = findViewById(R.id.textoFin)
+        botonReiniciar = findViewById(R.id.botonReiniciar)
+        botonVolver = findViewById(R.id.botonVolverDespuesDeFin)
 
         context = imagenCarta.context
         baraja = intent.extras?.getSerializable("baraja") as Baraja
@@ -60,47 +53,24 @@ class GameActivity : AppCompatActivity() {
         if (baraja.valores.count() == 0) cartas = baraja.crearBarajaNormal()
         else cartas = baraja.crearBaraja()
 
-        numeroCartasInicial = cartas.size
-
-        actualizarNumeroCartas()
+        cartasInicial = ArrayList()
+        for (carta in cartas) cartasInicial.add(carta)
 
         imagenCarta.setOnClickListener {
             clickCarta()
         }
 
-        cartaBaraja1.setOnClickListener {
-            levantarCarta()
+        botonReiniciar.setOnClickListener {
+            clickReiniciar()
         }
 
-        cartaBaraja2.setOnClickListener {
-            levantarCarta()
+        botonVolver.setOnClickListener {
+            clickVolverMenu()
         }
-
-        cartaBaraja3.setOnClickListener {
-            levantarCarta()
-        }
-
-        cartaBaraja4.setOnClickListener {
-            levantarCarta()
-        }
-
-        cartaBaraja5.setOnClickListener {
-            levantarCarta()
-        }
-
-        cartaBaraja6.setOnClickListener {
-            levantarCarta()
-        }
-    }
-    //Falta animar
-    private fun levantarCarta() {
-        imagenCarta.visibility = View.VISIBLE
-        imagenCarta.setImageResource(context.resources.getIdentifier("dorso", "drawable", context.packageName))
-
     }
 
     private fun clickCarta() {
-        if (!cartaGirando) {
+        if (!haciendoAccion) {
             if (cartaMostrando) {
                 quitarCarta()
             } else {
@@ -110,18 +80,44 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun girarCarta() {
-        cartaGirando = true
+        haciendoAccion = true
         textoAccion.text = ""
         cartas.shuffle()
-        var carta = cartas.removeAt(0)
+        val carta = cartas.removeAt(0)
         darVueltaPrimeraMitad(carta)
     }
 
     private fun quitarCarta() {
-        imagenCarta.visibility = View.INVISIBLE
         textoAccion.text = ""
-        imagenCarta.startAnimation(AnimationUtils.loadAnimation(this, R.anim.quitarcarta))
+        haciendoAccion = true
         cartaMostrando = false
+        imagenCarta.animate().apply() {
+            interpolator = AccelerateInterpolator()
+            duration = 500
+            translationXBy(800f)
+        }.withEndAction {
+            if (cartas.size > 0) sacarCarta()
+            else mostrarFin()
+        }
+    }
+
+    private fun sacarCarta() {
+        imagenCarta.setImageResource(context.resources.getIdentifier("dorso", "drawable", context.packageName))
+        imagenCarta.animate().apply() {
+            duration = 0
+            translationXBy(-1600f)
+        }.withEndAction {
+            ponerCarta()
+        }
+    }
+
+    private fun ponerCarta() {
+        imagenCarta.visibility = View.VISIBLE
+        imagenCarta.animate().apply() {
+            interpolator = DecelerateInterpolator()
+            duration = 800
+            translationXBy(800f)
+        }.withEndAction { haciendoAccion = false }
     }
 
     private fun darVueltaPrimeraMitad(carta: Carta) {
@@ -140,29 +136,34 @@ class GameActivity : AppCompatActivity() {
             interpolator = DecelerateInterpolator()
             duration = 1000
             rotationYBy(90f)
-        }.withEndAction { cartaGirando = false; cartaMostrando = true }
+        }.withEndAction { haciendoAccion = false; cartaMostrando = true }
         textoAccion.text = carta.getAccion()
     }
 
-    private fun actualizarNumeroCartas() {
-        when {
-            cartas.size == 1 -> cartaBaraja1.visibility = View.INVISIBLE
-            cartas.size < numeroCartasInicial / 6 || cartas.size == 2 -> cartaBaraja2.visibility = View.INVISIBLE
-            cartas.size < numeroCartasInicial / 6 * 2 || cartas.size == 3 -> cartaBaraja3.visibility = View.INVISIBLE
-            cartas.size < numeroCartasInicial / 6 * 3 || cartas.size == 4 -> cartaBaraja4.visibility = View.INVISIBLE
-            cartas.size < numeroCartasInicial / 6 * 4 || cartas.size == 5 -> cartaBaraja5.visibility = View.INVISIBLE
-            cartas.size < numeroCartasInicial / 6 * 5 || cartas.size == 6 -> cartaBaraja6.visibility = View.INVISIBLE
-        }
+    private fun mostrarFin() {
+        imagenCarta.visibility = View.INVISIBLE
+        textoFin.visibility = View.VISIBLE
+        botonReiniciar.visibility = View.VISIBLE
+        botonVolver.visibility = View.VISIBLE
     }
 
-    private fun getPrimeraCartaBarajaVisible(): ImageView {
-        when {
-            cartaBaraja6.visibility == View.VISIBLE -> return cartaBaraja6
-            cartaBaraja5.visibility == View.VISIBLE -> return cartaBaraja5
-            cartaBaraja4.visibility == View.VISIBLE -> return cartaBaraja4
-            cartaBaraja3.visibility == View.VISIBLE -> return cartaBaraja3
-            cartaBaraja2.visibility == View.VISIBLE -> return cartaBaraja2
-            else -> return cartaBaraja1
+    private fun clickVolverMenu() {
+        val startIntent = Intent(this, StartActivity::class.java).apply {}
+        startIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(startIntent)
+    }
+
+    private fun clickReiniciar () {
+        textoFin.visibility = View.INVISIBLE
+        botonReiniciar.visibility = View.INVISIBLE
+        botonVolver.visibility = View.INVISIBLE
+        rellenarBaraja()
+        sacarCarta()
+    }
+
+    private fun rellenarBaraja() {
+        for (carta in cartasInicial) {
+            cartas.add(carta)
         }
     }
 }
